@@ -1,3 +1,5 @@
+require 'pry'
+
 class BoundingBox
   attr_accessor :x, :y, :width, :height, :left, :right, :bottom, :top
 
@@ -8,13 +10,14 @@ class BoundingBox
     @bottom = y
     @width = width
     @height = height
+    @result = false
   end
 
   def contains_point?(x,y)
     if x >= left && x <= right && y >= bottom && y <= top
-      true
-    else
-      false
+      @result = true
     end
+    @result
+
   end
 end
